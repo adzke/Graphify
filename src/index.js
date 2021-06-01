@@ -4,9 +4,35 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+// Redux tools
+import { Provider } from 'react-redux';
+import store from './redux/Store/store'
+// React Alerts
+import Alerts from './components/Alerts/Alerts'
+import AlertTemplate from 'react-alert-template-basic'
+import { transitions, Provider as AlertProvider } from 'react-alert'
+const alertOptions = {
+// you can also just use 'bottom center'
+
+timeout: 5000,
+offset: '30px',
+// you can also just use 'scale'
+transition: transitions.SCALE,
+containerStyle: {
+  zIndex: 5000,
+  position: 'fixed',
+}
+}
+
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
+    <AlertProvider template={AlertTemplate}{...alertOptions}>
+      <Alerts/>
     <App />
+    </AlertProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
