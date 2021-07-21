@@ -93,6 +93,8 @@ function NewJobForm() {
     const [projectdefault, setProjectDefault] = React.useState((default_project_status != 0) ? default_project_status : job_status);
     const [notesdefault, setNotesDefault] = React.useState((default_job_notes != 0) ? default_job_notes : job_notes);
 
+     
+
 
     const jobNameChange = (event) => {
         dispatch(newJobFormJobNameChange(event.target.value))
